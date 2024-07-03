@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Youtube Subscribe Button</title>
+  	<style>
+  	 body{
+  	  font-family:Arial;
+  	  }
+  	
+  	 .sub-button{
+  	  border:none;
+  	  background-color:black;
+  	  color:white;
+  	  padding-top:10px;
+  	  padding-bottom:10px;
+  	  padding-left:20px;
+  	  padding-right:20px;
+  	  font-weight:bold;
+  	  border-radius:20px;
+  	  cursor:pointer;
+  	  margin-bottom:30px:
+  	  
+  	  }
+  	  
+  	  .is-subscribed{
+  	   background-color:rgb(240,240,240);
+  	   color:black;
+  	  
+  	  }
+  	  
+  	  .cost-input{
+  	   font-size:15px;
+  	   padding:10px;
+  	  }
+  	  
+  	  
+  	  .cal-button{
+  	   background-color:green;
+  	   color:white;
+  	   border:none;
+  	   font-size:15px;
+  	   padding:12px 15px; /*10px is vertical,50px is horizontal*/
+  	   cursor:pointer;
+  	   
+  	  }
+  	  
+  	 </style>
+  </head>
+  
+  <body>
+  
+   <p>Youtube Subscribe Button</p>
+   
+   <button onclick="subscribe();"
+   class="js-sub-button sub-button"
+   >Subscribe</button>
+   
+
+   <p>Amazon Shipping Caluculator</p>
+   <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="handleCostKeydown(event);"
+     >
+     
+   <!-- onkeydown element helps us to calculate total when we enter from keyboard instead of clicking cal button
+     -->
+   <button onclick="calTotal();" class="cal-button"> Caluculate</button>
+   
+   <p class="js-total-cost"> 
+
+    <script>
+      //2.AMAZON SHIPPING CAL
+      function handleCostKeydown(event){
+        if(event.key==='Enter'){
+         calTotal();
+         }
+        } 
+         
+      function calTotal(){
+       const ipElement=	document.querySelector('.js-cost-input');
+       let cost=Number(ipElement.value);
+         //console.log( cost);
+       
+        if(cost<40){
+         cost=cost+10;
+        }
+        
+        document.querySelector('.js-total-cost').innerHTML=`$${cost}`;       
+        }  
+        
+       //SUBSCRIBE BUTTON
+      function subscribe(){ 
+       const butElement= document.querySelector('.js-sub-button');
+ 
+	     if(butElement.innerText==='Subscribe'){
+	      butElement.innerHTML='Subscribed';
+	      butElement.classList.add('is-subscribed'); 
+	     }
+       else{
+        butElement.innerHTML='Subscribe';
+        butElement.classList.remove('is-subscribed'); 
+        }  
+  		}
+    </script>
+  </body>
+</html>

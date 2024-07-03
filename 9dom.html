@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>9sol DOM</title>
+  </head>
+  <body>
+    <button >9a</button><br>
+    
+    <button class="js-9b" onclick="update9b();">9b</button><br>
+    
+    <button onclick="clickHead();">heads</button>
+    <button onclick="clickTail();">tails</button>
+    <p class='js-res'></p>
+    
+    <input class="js-name" placeholder="Name" onkeydown="handleCostKeydown(event);">
+    <button onclick="displayName();">Submit</button>
+    <p class="js-display">
+    
+    <p>Amazon Shipping Caluculator</p>
+   <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeydown(event);"
+     >
+     <button onclick="calTotal();"> Caluculate</button>
+   
+   <p class="js-total-cost"> 
+   
+   
+   <input placeholder="Type something" class="js-ip"
+    onkeyup="const ipel=document.querySelector('.js-ip');
+         document.querySelector('.js-msg').innerHTML=ipel.value;      
+        ">
+   <p class="js-msg"></p> 
+    
+   
+    <script>
+    //9a
+       const btn=document.querySelector('button');
+       //console.log(btn);
+       //console.log(btn.innerHTML);
+       
+     
+     //9b  
+       function update9b(){
+       const btn2=document.querySelector('.js-9b');
+       btn2.innerHTML="9b done!";
+       }
+       
+       
+     //9c
+       let result='';
+       function clickHead(){
+        result='Head';
+        document.querySelector('.js-res').innerHTML=`You chose:${result}`;
+        }
+        
+        function clickTail(){
+        result='Tail';
+        document.querySelector('.js-res').innerHTML=`You chose:${result}`;
+        }
+        
+        //9d
+       // to get the value from input use .val
+        function displayName(){
+        const name=document.querySelector('.js-name');
+        document.querySelector('.js-display').innerHTML=`Your name is:${name.value}`;
+        }
+        
+        function handleCostKeydown(event){
+        if(event.key==='Enter'){
+         }
+         displayName();
+        }
+        
+        
+        //AMAZON SHIPPING CAL 
+        function handleCostKeydown(event){
+        if(event.key==='Enter'){
+         calTotal();
+         }
+        } 
+         
+      function calTotal(){
+       const ipElement=	document.querySelector('.js-cost-input');
+       let cost=Number(ipElement.value);
+         //console.log( cost);
+       
+        if(cost<4000){
+         cost=cost+1000;
+        }
+        
+        document.querySelector('.js-total-cost').innerHTML=`$${cost/100}`;
+        
+          }  
+       
+    </script>
+  </body>
+</html>
